@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class RestaurantComponent {
   menuOpen = false;
-
+isScrolled = false;
 toggleMenu() {
   this.menuOpen = !this.menuOpen;
 }
@@ -18,4 +18,9 @@ toggleMenu() {
 closeMenu() {
   this.menuOpen = false;
 }
+
+@HostListener('window:scroll')
+ onScroll() {
+  this.isScrolled = window.scrollY > 50;
+  }
 }

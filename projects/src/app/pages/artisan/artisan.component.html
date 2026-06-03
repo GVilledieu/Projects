@@ -1,5 +1,5 @@
 <header class="hero">
-<nav>
+<nav [class.scrolled]="isScrolled">
   <h2>Armor Rénovation</h2>
 
   <button class="burger" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
@@ -21,7 +21,7 @@
       Un artisan local pour transformer, réparer et améliorer votre habitat avec sérieux,
       transparence et finitions soignées.
     </p>
-    <a href="#devis" class="btn">Demander un devis gratuit</a>
+    <a routerLink="/artisan" fragment="devis" class="btn">Demander un devis gratuit</a>
   </section>
 </header>
 

@@ -8,7 +8,7 @@
 }
 
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
   background:
     linear-gradient(rgba(20, 20, 20, 0.72), rgba(20, 20, 20, 0.72)),
     url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80");
@@ -20,25 +20,57 @@
   overflow: hidden;
 }
 
+
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px 8%;
-  background: rgba(35, 35, 35, 0.92);
-  backdrop-filter: blur(12px);
+
+  background: rgba(35, 35, 35, 0.55);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(217, 130, 43, 0.15);
+
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+nav.scrolled {
+  background: rgba(35, 35, 35, 0.95);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    0 1px 0 rgba(217,130,43,0.2);
 }
 
 nav h2 {
   margin: 0;
   letter-spacing: 1px;
 }
+nav::before {
+  content: "";
 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    x rgba(217,130,43,0.6),
+    transparent
+  );
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -46,9 +78,35 @@ nav h2 {
 }
 
 .nav-links a {
+  position: relative;
   color: white;
   text-decoration: none;
   font-weight: bold;
+
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d9822b;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: #d9822b;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .burger {
@@ -73,7 +131,13 @@ nav h2 {
 
 .hero-content {
   max-width: 720px;
-  margin-top: 160px;
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-top: 60px;
 }
 
 .hero-content p:first-child,
@@ -94,6 +158,11 @@ nav h2 {
 .hero-content p {
   font-size: 18px;
   line-height: 1.7;
+}
+
+.hero-content .btn {
+  align-self: flex-start;
+  width: fit-content;
 }
 
 .btn,

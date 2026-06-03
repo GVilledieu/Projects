@@ -1,6 +1,8 @@
 <header class="hero">
   <nav>
-    <h2>L’Écume Bretonne</h2>
+    <a routerLink="/restaurant" class="logo">
+      <img src="assets/logo_ecume_restau.png" alt="L'Écume Bretonne">
+    </a>
 
     <button class="burger" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
       ☰
@@ -86,12 +88,12 @@
 
   <label>
     Date
-    <input type="date" />
+    <input type="text" placeholder="Date souhaitée" onfocus="this.type='date'" />
   </label>
 
   <label>
     Heure
-    <input type="time" />
+    <input type="text" placeholder="Heure souhaitée" onfocus="this.type='time'" />
   </label>
 
   <textarea placeholder="Message ou demande particulière"></textarea>
