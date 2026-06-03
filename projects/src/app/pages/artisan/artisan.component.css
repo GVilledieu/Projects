@@ -1,5 +1,7 @@
 :host {
   display: block;
+  width: 100%;
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   color: #232323;
   background: #232323;
@@ -14,6 +16,8 @@
   background-position: center;
   color: white;
   padding: 24px 8%;
+  width: 100%;
+  overflow: hidden;
 }
 
 nav {
