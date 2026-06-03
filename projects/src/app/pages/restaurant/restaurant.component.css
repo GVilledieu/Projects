@@ -256,6 +256,26 @@ footer {
     z-index: 1001;
   }
 
+  input,
+textarea {
+  background: white;
+  color: #102a43;
+}
+
+input[type="date"],
+input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 52px;
+  background: white;
+  color: #102a43;
+}
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  filter: invert(20%);
+}
   .burger {
     display: block;
   }
