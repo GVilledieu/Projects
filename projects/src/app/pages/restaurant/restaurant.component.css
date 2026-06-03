@@ -181,6 +181,46 @@ button {
   background: #f7f1e3;
 }
 
+.reservation form {
+  width: 100%;
+}
+
+.reservation input,
+.reservation textarea {
+  width: 100%;
+  background-color: #ffffff !important;
+  color: #102a43 !important;
+  border: 1px solid #ddd;
+  -webkit-text-fill-color: #102a43;
+  color-scheme: light;
+}
+
+.reservation label {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  font-weight: bold;
+  color: #102a43;
+}
+
+.reservation input[type="date"],
+.reservation input[type="time"] {
+  width: 100%;
+  min-height: 56px;
+  appearance: auto;
+  -webkit-appearance: auto;
+  background-color: #ffffff !important;
+  color: #102a43 !important;
+  -webkit-text-fill-color: #102a43;
+  color-scheme: light;
+}
+
+.reservation input[type="date"]::-webkit-calendar-picker-indicator,
+.reservation input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  filter: invert(20%);
+}
+
 form {
   max-width: 650px;
   margin: auto;
