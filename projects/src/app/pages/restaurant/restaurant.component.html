@@ -1,15 +1,15 @@
 <header class="hero">
   <nav>
     <h2>L’Écume Bretonne</h2>
-    <div>
-        <nav>
-        <h2>L’Écume Bretonne</h2>
-        <div>
-            <a routerLink="/restaurant" fragment="menu">Menu</a>
-            <a routerLink="/restaurant" fragment="reservation">Réserver</a>
-            <a routerLink="/restaurant" fragment="contact">Contact</a>
-        </div>
-        </nav>
+
+    <button class="burger" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
+      ☰
+    </button>
+
+    <div class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/restaurant" fragment="menu" (click)="closeMenu()">Menu</a>
+      <a routerLink="/restaurant" fragment="reservation" (click)="closeMenu()">Réserver</a>
+      <a routerLink="/restaurant" fragment="contact" (click)="closeMenu()">Contact</a>
     </div>
   </nav>
 

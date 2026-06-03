@@ -9,5 +9,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './restaurant.component.css'
 })
 export class RestaurantComponent {
+  menuOpen = false;
 
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+
+closeMenu() {
+  this.menuOpen = false;
+}
 }

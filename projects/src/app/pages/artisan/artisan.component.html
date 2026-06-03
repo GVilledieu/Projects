@@ -1,13 +1,18 @@
 <header class="hero">
-  <nav>
-    <h2>Armor Rénovation</h2>
-    <div>
-        <a routerLink="/artisan" fragment="services">Services</a>
-        <a routerLink="/artisan" fragment="realisations">Réalisations</a>
-        <a routerLink="/artisan" fragment="devis">Devis</a>
-        <a routerLink="/artisan" fragment="contact">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <h2>Armor Rénovation</h2>
+
+  <button class="burger" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
+    ☰
+  </button>
+
+  <div class="nav-links" [class.open]="menuOpen">
+    <a routerLink="/artisan" fragment="services" (click)="closeMenu()">Services</a>
+    <a routerLink="/artisan" fragment="realisations" (click)="closeMenu()">Réalisations</a>
+    <a routerLink="/artisan" fragment="devis" (click)="closeMenu()">Devis</a>
+    <a routerLink="/artisan" fragment="contact" (click)="closeMenu()">Contact</a>
+  </div>
+</nav>
 
   <section class="hero-content">
     <p>Artisan rénovation en Bretagne</p>

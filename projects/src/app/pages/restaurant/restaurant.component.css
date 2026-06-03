@@ -232,3 +232,48 @@ footer {
   color: white;
 }
 
+.burger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  nav {
+    position: relative;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 220px;
+    background: rgba(16, 42, 67, 0.95);
+    border-radius: 14px;
+    padding: 16px;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 0;
+  }
+}
+

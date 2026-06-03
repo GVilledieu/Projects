@@ -9,5 +9,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './artisan.component.css'
 })
 export class ArtisanComponent {
+  menuOpen = false;
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
 }
