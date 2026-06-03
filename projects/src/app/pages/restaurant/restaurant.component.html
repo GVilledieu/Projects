@@ -20,7 +20,7 @@
       Une adresse chaleureuse au cœur de Saint-Malo, entre poissons du marché,
       produits locaux et ambiance bord de mer.
     </p>
-    <a href="#reservation" class="btn">Réserver une table</a>
+    <a routerLink="/restaurant" fragment="reservation" class="btn">Réserver une table</a>
   </section>
 </header>
 
@@ -80,22 +80,23 @@
   <section id="reservation" class="section reservation">
     <h2>Réserver une table</h2>
 
-    <form>
-      <input type="text" placeholder="Votre nom" />
-      <input type="email" placeholder="Votre email" />
-      <input type="date" />
-      <label>
-      Date
-      <input type="date" />
-    </label>
+<form>
+  <input type="text" placeholder="Votre nom" />
+  <input type="email" placeholder="Votre email" />
 
-    <label>
-      Heure
-      <input type="time" />
-    </label>
-      <textarea placeholder="Message ou demande particulière"></textarea>
-      <button type="button">Envoyer la demande</button>
-    </form>
+  <label>
+    Date
+    <input type="date" />
+  </label>
+
+  <label>
+    Heure
+    <input type="time" />
+  </label>
+
+  <textarea placeholder="Message ou demande particulière"></textarea>
+  <button type="button">Envoyer la demande</button>
+</form>
   </section>
 
   <section id="contact" class="section contact">
@@ -109,5 +110,5 @@
   ↑
 </a>
 <footer>
-  <p>© 2026 Armor Rénovation - Tous droits réservés</p>
+  <p>© 2026 L’Écume Bretonne - Tous droits réservés</p>
 </footer>
