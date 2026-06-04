@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 export class RestaurantComponent {
   menuOpen = false;
 isScrolled = false;
+
 toggleMenu() {
   this.menuOpen = !this.menuOpen;
 }
@@ -18,6 +19,8 @@ toggleMenu() {
 closeMenu() {
   this.menuOpen = false;
 }
+
+
 
 @HostListener('window:scroll')
  onScroll() {

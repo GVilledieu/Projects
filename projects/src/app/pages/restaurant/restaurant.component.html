@@ -1,19 +1,29 @@
 <header class="hero">
   <nav>
+    <button class="burger" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
+     ☰
+    </button>
     <a routerLink="/restaurant" class="logo">
       <img src="assets/logo_ecume_restau.png" alt="L'Écume Bretonne">
     </a>
 
-    <button class="burger" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
-      ☰
-    </button>
 
-    <div class="nav-links" [class.open]="menuOpen">
+    <div class="desktop-links">
+      <a routerLink="/restaurant" fragment="menu">Menu</a>
+      <a routerLink="/restaurant" fragment="reservation">Réserver</a>
+      <a routerLink="/restaurant" fragment="contact">Contact</a>
+    </div>
+  </nav>
+
+    <div class="menu-overlay" [class.open]="menuOpen" (click)="closeMenu()"></div>
+
+    <aside class="mobile-drawer" [class.open]="menuOpen">
+      <button class="close-menu" type="button" (click)="closeMenu()">×</button>
+
       <a routerLink="/restaurant" fragment="menu" (click)="closeMenu()">Menu</a>
       <a routerLink="/restaurant" fragment="reservation" (click)="closeMenu()">Réserver</a>
       <a routerLink="/restaurant" fragment="contact" (click)="closeMenu()">Contact</a>
-    </div>
-  </nav>
+    </aside>
 
   <section class="hero-content">
     <p>Restaurant à Saint-Malo</p>

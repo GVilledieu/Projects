@@ -20,57 +20,58 @@
   overflow: hidden;
 }
 
-
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 20px 8%;
-
   background: rgba(35, 35, 35, 0.55);
   backdrop-filter: blur(14px);
-
   border-bottom: 1px solid rgba(217, 130, 43, 0.15);
-
   transition: all 0.3s ease;
-  z-index: 1000;
 }
 
 nav.scrolled {
   background: rgba(35, 35, 35, 0.95);
-
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.25),
-    0 1px 0 rgba(217,130,43,0.2);
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 1px 0 rgba(217, 130, 43, 0.2);
 }
 
-nav h2 {
-  margin: 0;
-  letter-spacing: 1px;
-}
 nav::before {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: 0;
-
   width: 100%;
   height: 1px;
-
   background: linear-gradient(
     90deg,
     transparent,
-    x rgba(217,130,43,0.6),
+    rgba(217, 130, 43, 0.6),
     transparent
   );
 }
+
+.logo-text {
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.logo-text span {
+  color: #d9822b;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -82,7 +83,6 @@ nav::before {
   color: white;
   text-decoration: none;
   font-weight: bold;
-
   transition: color 0.3s ease;
 }
 
@@ -92,16 +92,12 @@ nav::before {
 
 .nav-links a::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: -6px;
-
   width: 0;
   height: 2px;
-
   background: #d9822b;
-
   transition: width 0.3s ease;
 }
 
@@ -132,11 +128,9 @@ nav::before {
 .hero-content {
   max-width: 720px;
   min-height: calc(100vh - 80px);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   padding-top: 60px;
 }
 
@@ -180,6 +174,8 @@ button {
 
 .section {
   padding: 80px 8%;
+  background: #fbfaf7;
+  color: #232323;
 }
 
 .section h2 {
@@ -187,11 +183,40 @@ button {
   font-size: 38px;
   margin: 0 auto 42px;
   text-align: center;
+  color: #232323;
 }
 
 .eyebrow {
   text-align: center;
   margin-bottom: 12px;
+  color: #d9822b;
+}
+
+/* Section Nos prestations */
+#services {
+  background: #fbfaf7;
+  color: #232323;
+}
+
+#services h2 {
+  color: #232323;
+}
+
+#services .eyebrow {
+  color: #d9822b;
+}
+
+#services .cards article {
+background: #f3eadf;
+  color: #232323;
+}
+
+#services .cards h3 {
+  color: #232323;
+}
+
+#services .cards p {
+  color: #555;
 }
 
 .cards,
@@ -200,12 +225,6 @@ button {
 .testimonial-grid {
   display: grid;
   gap: 26px;
-}
-
-.cards,
-.work-grid,
-.why-grid,
-.testimonial-grid {
   width: 100%;
   max-width: 100%;
 }
@@ -223,7 +242,6 @@ button {
 }
 
 .cards article {
-  background: white;
   padding: 30px;
   border-radius: 14px;
   border: 1px solid #eee;
@@ -257,6 +275,11 @@ button {
   color: white;
 }
 
+.works h2,
+.quote h2 {
+  color: white;
+}
+
 .work-grid article {
   background: #2f2f2f;
   border-radius: 16px;
@@ -266,6 +289,10 @@ button {
 .work-grid h3,
 .work-grid p {
   padding: 0 22px;
+}
+
+.work-grid h3 {
+  color: white;
 }
 
 .work-grid p {
@@ -292,7 +319,11 @@ button {
 }
 
 .why {
-  background: #f3eadf;
+  background: white;
+}
+
+.why h2 {
+  color: #232323;
 }
 
 .why-grid {
@@ -301,7 +332,7 @@ button {
 }
 
 .why-grid div {
-  background: white;
+  background: #fbfaf7;
   padding: 26px;
   border-radius: 14px;
   text-align: center;
@@ -309,6 +340,16 @@ button {
 
 .why-grid strong {
   font-size: 20px;
+  color: #232323;
+}
+
+.testimonials {
+  background: #fbfaf7;
+  color: #232323;
+}
+
+.testimonials h2 {
+  color: #232323;
 }
 
 .testimonial-grid article {
@@ -322,6 +363,7 @@ button {
 .testimonial-grid p {
   font-size: 18px;
   line-height: 1.6;
+  color: #232323;
 }
 
 form {
@@ -352,6 +394,7 @@ textarea {
 
 .contact h2 {
   margin-bottom: 20px;
+  color: white;
 }
 
 footer {
@@ -402,14 +445,12 @@ footer {
 }
 
 @media (max-width: 850px) {
-
   nav {
     padding: 18px 24px;
   }
 
-  nav h2 {
-    font-size: 18px;
-    color: white;
+  .logo-text {
+    font-size: 22px;
     z-index: 1001;
   }
 
@@ -423,15 +464,12 @@ footer {
     left: 0;
     right: 0;
     height: calc(100vh - 76px);
-
     background: rgba(20, 20, 20, 0.96);
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 28px;
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -462,7 +500,6 @@ footer {
     padding: 0 24px;
     margin-top: 0;
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -475,6 +512,15 @@ footer {
 
   .btn {
     align-self: flex-start;
+  }
+
+  .section {
+    padding: 70px 24px;
+    overflow-x: hidden;
+  }
+
+  .section h2 {
+    font-size: 36px;
   }
 
   .cards,
@@ -492,10 +538,5 @@ footer {
   .testimonial-grid article {
     width: 100%;
     max-width: 100%;
-  }
-
-  .section {
-    padding: 70px 24px;
-    overflow-x: hidden;
   }
 }
