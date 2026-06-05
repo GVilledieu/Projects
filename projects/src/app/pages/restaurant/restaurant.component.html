@@ -9,7 +9,9 @@
 
 
     <div class="desktop-links">
-      <a routerLink="/restaurant" fragment="menu">Menu</a>
+      <a routerLink="/restaurant" fragment="specialites">Nos spécialités</a>
+      <a routerLink="/restaurant" fragment="menu">Carte</a>
+      <a routerLink="/restaurant" fragment="gallerie">Gallerie</a>
       <a routerLink="/restaurant" fragment="reservation">Réserver</a>
       <a routerLink="/restaurant" fragment="contact">Contact</a>
     </div>
@@ -19,14 +21,16 @@
 
     <aside class="mobile-drawer" [class.open]="menuOpen">
       <button class="close-menu" type="button" (click)="closeMenu()">×</button>
-
-      <a routerLink="/restaurant" fragment="menu" (click)="closeMenu()">Menu</a>
+    
+      <a routerLink="/restaurant" fragment="specialites" (click)="closeMenu()">Nos spécialités</a>
+      <a routerLink="/restaurant" fragment="menu" (click)="closeMenu()">Carte</a>
+      <a routerLink="/restaurant" fragment="gallerie" (click)="closeMenu()">Gallerie</a>
       <a routerLink="/restaurant" fragment="reservation" (click)="closeMenu()">Réserver</a>
       <a routerLink="/restaurant" fragment="contact" (click)="closeMenu()">Contact</a>
     </aside>
 
   <section class="hero-content">
-    <p>Restaurant à Saint-Malo</p>
+    <p>L'Écume Bretonne</p>
     <h1>Cuisine bretonne moderne & produits de la mer</h1>
     <p>
       Une adresse chaleureuse au cœur de Saint-Malo, entre poissons du marché,
@@ -37,7 +41,7 @@
 </header>
 
 <main>
-  <section class="section">
+  <section id="specialites" class="section">
     <h2>Nos spécialités</h2>
 
     <div class="cards">
@@ -58,29 +62,84 @@
     </div>
   </section>
 
-  <section id="menu" class="section menu">
-    <h2>Menu du jour</h2>
+<section id="menu" class="section menu">
+  <p class="eyebrow">Notre carte</p>
+  
+  <h2>Produits de la mer & spécialités bretonnes</h2>
 
-    <div class="menu-list">
-      <div>
-        <span>Entrée</span>
-        <strong>Velouté de légumes bretons</strong>
+  <div class="menu-categories">
+    <article>
+      <h3>Entrées</h3>
+
+      <div class="menu-item">
+        <div>
+          <strong>Huîtres de Cancale</strong>
+          <p>6 pièces, citron et vinaigre à l’échalote.</p>
+        </div>
+        <span>12€</span>
       </div>
 
-      <div>
-        <span>Plat</span>
-        <strong>Filet de lieu jaune, sauce citronnée</strong>
+      <div class="menu-item">
+        <div>
+          <strong>Soupe de poissons maison</strong>
+          <p>Rouille, croûtons et fromage râpé.</p>
+        </div>
+        <span>10€</span>
+      </div>
+    </article>
+
+    <article>
+      <h3>Poissons & fruits de mer</h3>
+
+      <div class="menu-item">
+        <div>
+          <strong>Filet de bar rôti</strong>
+          <p>Légumes de saison et beurre citronné.</p>
+        </div>
+        <span>24€</span>
       </div>
 
-      <div>
-        <span>Dessert</span>
-        <strong>Crêpe caramel beurre salé</strong>
+      <div class="menu-item">
+        <div>
+          <strong>Noix de Saint-Jacques poêlées</strong>
+          <p>Purée de panais et émulsion iodée.</p>
+        </div>
+        <span>28€</span>
       </div>
-    </div>
-  </section>
 
-  <section class="section gallery">
-    <h2>Ambiance bord de mer</h2>
+      <div class="menu-item">
+        <div>
+          <strong>Plateau du pêcheur</strong>
+          <p>Fruits de mer selon arrivage.</p>
+        </div>
+        <span>36€</span>
+      </div>
+    </article>
+
+    <article>
+      <h3>Desserts</h3>
+
+      <div class="menu-item">
+        <div>
+          <strong>Far breton maison</strong>
+          <p>Recette traditionnelle aux pruneaux.</p>
+        </div>
+        <span>8€</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <strong>Crêpe caramel beurre salé</strong>
+          <p>Caramel maison et glace vanille.</p>
+        </div>
+        <span>9€</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <section id="gallerie" class="section gallery">
+    <h2>Gallerie</h2>
 
     <div class="gallery-grid">
       <div></div>
@@ -92,23 +151,108 @@
   <section id="reservation" class="section reservation">
     <h2>Réserver une table</h2>
 
-<form>
-  <input type="text" placeholder="Votre nom" />
-  <input type="email" placeholder="Votre email" />
-
+<form #reservationForm="ngForm" (ngSubmit)="sendReservation(reservationForm)">
   <label>
-    Date
-    <input type="text" placeholder="Date souhaitée" onfocus="this.type='date'" />
-  </label>
+    Nom
+  <input
+    type="text"
+    name="name"
+    placeholder="Votre nom"
+    required
+    minlength="2"
+    ngModel
+    #name="ngModel"
+  />
+  @if (name.invalid && name.touched) {
+  <small class="field-error">
+    Le nom doit contenir au moins 2 caractères.
+  </small>
+}
+ </label>
 
-  <label>
-    Heure
-    <input type="text" placeholder="Heure souhaitée" onfocus="this.type='time'" />
-  </label>
+ 
 
-  <textarea placeholder="Message ou demande particulière"></textarea>
-  <button type="button">Envoyer la demande</button>
+ <label>
+  Email
+<input
+  type="email"
+  name="email"
+  placeholder="Votre email"
+  required
+  email
+  ngModel
+  #email="ngModel"
+/>
+  @if (email.invalid && email.touched) {
+  <small class="field-error">
+    Merci d’indiquer une adresse email valide.
+  </small>
+}
+</label>
+<label>
+  Date
+  <input
+    type="date"
+    name="date"
+    required
+    [min]="today"
+    [(ngModel)]="reservationDate"
+    #dateCtrl="ngModel"
+  />
+</label>
+
+@if (dateCtrl.invalid && dateCtrl.touched) {
+  <small class="field-error">
+    Merci de choisir une date valide.
+  </small>
+}
+
+<label>
+  Heure
+  <input
+    type="time"
+    name="time"
+    required
+    min="12:00"
+    max="22:00"
+    [(ngModel)]="reservationTime"
+    #timeCtrl="ngModel"
+  />
+</label>
+
+@if (timeCtrl.touched && !isValidReservationTime()) {
+  <small class="field-error">
+    Choisissez une heure entre 12h-14h ou 19h-22h.
+  </small>
+}
+
+  <textarea
+    name="message"
+    placeholder="Message ou demande particulière"
+    ngModel
+  ></textarea>
+
+  <button type="submit">Envoyer la demande</button>
 </form>
+
+@if (showPopup) {
+  <div class="popup-overlay" (click)="closePopup()">
+    <div class="popup" (click)="$event.stopPropagation()">
+      <button class="popup-close" type="button" (click)="closePopup()">×</button>
+
+      <div class="popup-icon">✓</div>
+
+      <h3>Demande envoyée</h3>
+
+      <p>
+        Merci, votre demande de réservation a bien été prise en compte.
+        Nous vous recontacterons rapidement.
+      </p>
+
+      <button type="button" (click)="closePopup()">Fermer</button>
+    </div>
+  </div>
+}
   </section>
 
   <section id="contact" class="section contact">
